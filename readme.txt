@@ -2,4 +2,8 @@ hello git
 hello python
 hello 
 
-master, windows
+master
+master
+master
+master
+master
