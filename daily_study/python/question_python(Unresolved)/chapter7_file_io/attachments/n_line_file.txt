@@ -1,0 +1,16 @@
+# List of the world's smartest animals
+1: Orangutan
+2: Bottlenose Dolphin
+3: Chimpanzee
+4: Elephant
+5: Crow
+6: African Grey Parrot
+7: Pig
+8: Rat
+9: Squirrel
+10: Raccoon
+11: Veined Octopus
+12: Pigeon
+13: Dogs
+14: Portia Labiata Jumping Spider
+15: Ants

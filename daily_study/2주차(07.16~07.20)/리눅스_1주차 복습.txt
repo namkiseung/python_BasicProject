@@ -1,0 +1,73 @@
+<1주차>
+-리눅스란?
+	-리눅스 탄생
+	-Tux란
+	-OS란
+	-리눅스 구조
+	-커널소스 숫자(버전)
+	-커널과 모듈
+	-다중사용자, 다중 작업 시스템
+	-라이센스
+-가상머신
+	-개요
+	-장단점
+	-VMware?
+	-환경설정
+-리눅스시스템
+	-프로세스(과정)
+	-계정
+	-종료 재부팅 명령어
+	-Shell 이란?, 그리고 종류, 기능  (p.21쪽 근방)
+	-리눅스 디렉토리(절대,상대)
+		-중요파일(/bin, /boot, /dev, /etc,/home, /lib, /root, /mnt, /proc, /sbin, /tmp, /usr, /lost+found, /opt, /var)
+-리눅스명령어
+	man
+	pwd
+	cd
+	ls
+	cp
+	mv
+	mkdir
+	rm
+	cat
+	touch
+	head <-> tail
+	more
+	date -> rdate
+	tzselect
+	file
+	history
+	su
+	crontab
+	at
+	find
+	ifconfig
+	route
+	shutdown
+	tar
+	zip
+	unzip
+	grep
+	파이프
+	표준입출력과 리다이렉션 
+		/dev/stdin(0)
+		/dev/stdin(1)
+		/dev/stdin(2)
+User Account Mgt.
+	/etc/passwd  정보 읽는방법
+	/etc/shadow  정보 읽는방법
+	/etc/group  
+명령어
+	useradd
+	usermod
+	userdel
+	passwd
+	groupadd
+	groupdel
+파일
+	파일유형
+	파일 허가권
+	파일소유권
+		chown
+	파일허가권	
+	
