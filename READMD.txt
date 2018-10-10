@@ -1,0 +1,17 @@
+¡Û Nothing mean
+
+[ Practice ]
+ - Basic Python files
+ - Type (String, bool, int ...)
+ - if else Applications
+ - while Applications
+ - for Applications
+ - list Applications
+ - dict Applications
+ - tuple Applications
+ - scope
+ - concept input
+ - method, class
+ - module
+ - try / except
+ - External Library
