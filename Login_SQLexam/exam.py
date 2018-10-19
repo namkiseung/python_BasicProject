@@ -18,7 +18,7 @@ while True:
    else:
       print "[!] failed"
 
-   #db.execute("CREATE TABLE users(id text, pw text)")
+#db.execute("CREATE TABLE users(id text, pw text)")
 #db.execute("INSERT INTO users VALUES ('rltmd', '1234')")
-   #db.commit()
-   #db.close()
+#db.commit()
+#db.close()
