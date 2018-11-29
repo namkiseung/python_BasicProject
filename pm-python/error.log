@@ -96,3 +96,196 @@ Traceback (most recent call last):
   File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
     cur.execute(query)
 sqlite3.OperationalError: no such column: users.idx
+2018-11-29 16:14:32: query.py: DEBUG: execute(): 250: Execute query: INSERT INTO users(idx, site_name, site_url, user_id, user_pw, content, date)
+VALUES (NULL, 'i2sec', 'i2sec.co.kr', 'rltmd', '0000', '', 'Thu Nov 29 16:13:17 2018')
+2018-11-29 16:14:32: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: table users has no column named idx
+2018-11-29 16:20:43: query.py: DEBUG: execute(): 250: Execute query: INSERT INTO users(idx, site_name, site_url, user_id, user_pw, content, date)
+VALUES (NULL, 'i2sec', 'i2sec.co.kr', 'rltmd', '0000', '', 'Thu Nov 29 16:20:43 2018')
+2018-11-29 16:20:43: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: table users has no column named idx
+2018-11-29 16:21:14: query.py: DEBUG: execute(): 250: Execute query: INSERT INTO users(idx, site_name, site_url, user_id, user_pw, content, date)
+VALUES (NULL, 'i2sec', 'i2sec.co.kr', 'rltmd', '0000', '', 'Thu Nov 29 16:21:14 2018')
+2018-11-29 16:21:14: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: table users has no column named idx
+2018-11-29 16:23:39: query.py: DEBUG: execute(): 250: Execute query: INSERT INTO users(idx, site_name, site_url, user_id, user_pw, content, date)
+VALUES (NULL, 'i2sec', 'i2sec.co.kr', 'rltmd', '0000', '', 'Thu Nov 29 16:22:24 2018')
+2018-11-29 16:23:39: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: table users has no column named idx
+2018-11-29 16:25:45: query.py: DEBUG: execute(): 250: Execute query: CREATE TABLE users (
+idx INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,
+site_name TEXT NOT NULL   ,
+site_url TEXT    ,
+user_id TEXT NOT NULL   ,
+user_pw TEXT NOT NULL   ,
+content TEXT    ,
+date TEXT    
+
+)
+2018-11-29 16:25:50: query.py: DEBUG: execute(): 250: Execute query: INSERT INTO users(idx, site_name, site_url, user_id, user_pw, content, date)
+VALUES (NULL, 'i2sec', 'i2sec.co.kr', 'rltmd', '0000', '', 'Thu Nov 29 16:25:50 2018')
+2018-11-29 16:27:50: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:29:04: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:29:30: query.py: DEBUG: execute(): 250: Execute query: CREATE TABLE users (
+idx INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,
+site_name TEXT NOT NULL   ,
+site_url TEXT    ,
+user_id TEXT NOT NULL   ,
+user_pw TEXT NOT NULL   ,
+content TEXT    ,
+date TEXT    
+
+)
+2018-11-29 16:29:30: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: table users already exists
+2018-11-29 16:33:31: query.py: DEBUG: execute(): 250: Execute query: SELECT users.user_id FROM users
+2018-11-29 16:34:10: query.py: DEBUG: execute(): 250: Execute query: SELECT users.user_id FROM users
+2018-11-29 16:34:21: query.py: DEBUG: execute(): 250: Execute query: SELECT users.user_id FROM users
+2018-11-29 16:34:24: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:34:26: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:34:30: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:34:37: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:35:52: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:38:35: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:38:35: query.py: DEBUG: filter(): 182: Getting filter condition: () and logical operator: AND
+2018-11-29 16:38:35: query.py: DEBUG: filter(): 182: Getting filter condition: () and logical operator: AND
+2018-11-29 16:41:04: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:41:04: query.py: DEBUG: filter(): 182: Getting filter condition: () and logical operator: AND
+2018-11-29 16:41:04: query.py: DEBUG: filter(): 182: Getting filter condition: () and logical operator: AND
+2018-11-29 16:43:41: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:43:41: query.py: DEBUG: filter(): 182: Getting filter condition: () and logical operator: AND
+2018-11-29 16:43:41: query.py: DEBUG: filter(): 182: Getting filter condition: () and logical operator: AND
+2018-11-29 16:43:49: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:43:49: query.py: DEBUG: filter(): 182: Getting filter condition: () and logical operator: AND
+2018-11-29 16:43:49: query.py: DEBUG: filter(): 182: Getting filter condition: () and logical operator: AND
+2018-11-29 16:44:09: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:44:09: query.py: DEBUG: filter(): 182: Getting filter condition: (users.user_id = '') and logical operator: AND
+2018-11-29 16:44:19: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:44:19: query.py: DEBUG: filter(): 182: Getting filter condition: (users.user_id = 'a') and logical operator: AND
+2018-11-29 16:44:28: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:44:28: query.py: DEBUG: filter(): 182: Getting filter condition: (users.user_id != 'a') and logical operator: AND
+2018-11-29 16:44:53: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:45:01: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:45:51: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:51:30: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:52:06: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 16:52:35: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:11:35: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:11:51: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:12:09: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:12:18: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:13:00: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:13:07: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:13:25: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:13:36: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:13:46: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:13:55: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:14:05: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:14:12: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:14:25: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:14:35: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:14:49: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:15:01: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:15:23: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:15:49: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:15:55: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:16:17: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:16:27: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:16:30: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:16:38: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:16:42: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:16:51: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:16:57: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:17:03: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:17:29: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:17:43: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:18:02: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:18:07: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:18:17: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:18:28: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:18:36: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:18:41: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:20:21: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:20:59: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:21:09: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:21:14: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:22:30: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:22:46: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:23:13: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:23:36: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:23:58: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:23:58: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:24:03: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:24:03: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:24:09: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:24:09: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:24:23: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:24:23: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:24:27: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:24:27: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:24:34: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:24:34: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:26:31: query.py: DEBUG: execute(): 250: Execute query: INSERT INTO users(idx, site_name, site_url, user_id, user_pw, content, date)
+VALUES (NULL, 'i2sec', 'i2sec.co.kr', 'rltmd', '0000', '', 'Thu Nov 29 17:26:31 2018')
+2018-11-29 17:26:48: query.py: DEBUG: execute(): 250: Execute query: INSERT INTO users(idx, site_name, site_url, user_id, user_pw, content, date)
+VALUES (NULL, 'i2sec', 'i2sec.co.kr', 'rltmd', '0000', '', 'Thu Nov 29 17:26:48 2018')
+2018-11-29 17:27:21: query.py: DEBUG: execute(): 250: Execute query: INSERT INTO users(idx, site_name, site_url, user_id, user_pw, content, date)
+VALUES (NULL, 'i2sec', 'i2sec.co.kr', 'rltmd', '0000', '', 'Thu Nov 29 17:27:21 2018')
+2018-11-29 17:28:48: query.py: DEBUG: execute(): 250: Execute query: INSERT INTO users(idx, site_name, site_url, user_id, user_pw, content, date)
+VALUES (NULL, 'http://www.naver.com', 'httpd://www.naver.com', 'rltmd', '123', '', 'Thu Nov 29 17:27:33 2018')
+2018-11-29 17:29:46: query.py: DEBUG: execute(): 250: Execute query: INSERT INTO users(idx, site_name, site_url, user_id, user_pw, content, date)
+VALUES (NULL, 'naver', 'www.naver.com', 'rltmd', '0000', '', 'Thu Nov 29 17:28:31 2018')
+2018-11-29 17:30:09: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:30:09: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:33:53: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:33:53: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:34:03: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:36:25: query.py: DEBUG: filter(): 182: Getting filter condition: () and logical operator: AND
+2018-11-29 17:36:25: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:36:38: query.py: DEBUG: filter(): 182: Getting filter condition: () and logical operator: AND
+2018-11-29 17:36:38: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 17:40:14: query.py: DEBUG: filter(): 182: Getting filter condition: (users.user_id = 'rltmd') and logical operator: AND
+2018-11-29 17:40:14: query.py: DEBUG: execute(): 250: Execute query: 
+WHERE (users.user_id = 'rltmd')
+2018-11-29 17:40:14: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: near "WHERE": syntax error
+2018-11-29 17:41:14: query.py: DEBUG: filter(): 182: Getting filter condition: (users.site_name = 'i2sec') and logical operator: AND
+2018-11-29 17:41:14: query.py: DEBUG: execute(): 250: Execute query: 
+WHERE (users.site_name = 'i2sec')
+2018-11-29 17:41:14: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: near "WHERE": syntax error
