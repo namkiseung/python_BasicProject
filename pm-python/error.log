@@ -1,0 +1,98 @@
+2018-11-29 11:12:36: query.py: DEBUG: execute(): 250: Execute query: SELECT pppwww.idx, pppwww.site_name, pppwww.site_url, pppwww.user_id, pppwww.user_pw, pppwww.content, pppwww.date FROM pppwww
+2018-11-29 11:12:36: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: no such table: pppwww
+2018-11-29 11:13:07: query.py: DEBUG: execute(): 250: Execute query: CREATE TABLE pppwww (
+idx INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,
+site_name TEXT NOT NULL   ,
+site_url TEXT    ,
+user_id TEXT NOT NULL   ,
+user_pw TEXT NOT NULL   ,
+content TEXT    ,
+date TEXT    
+
+)
+2018-11-29 11:13:07: query.py: DEBUG: execute(): 250: Execute query: SELECT pppwww.idx, pppwww.site_name, pppwww.site_url, pppwww.user_id, pppwww.user_pw, pppwww.content, pppwww.date FROM pppwww
+2018-11-29 11:13:11: query.py: DEBUG: execute(): 250: Execute query: CREATE TABLE pppwww (
+idx INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,
+site_name TEXT NOT NULL   ,
+site_url TEXT    ,
+user_id TEXT NOT NULL   ,
+user_pw TEXT NOT NULL   ,
+content TEXT    ,
+date TEXT    
+
+)
+2018-11-29 11:13:11: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: table pppwww already exists
+2018-11-29 12:33:55: query.py: DEBUG: execute(): 250: Execute query: CREATE TABLE pppwww (
+idx INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,
+site_name TEXT NOT NULL   ,
+site_url TEXT    ,
+user_id TEXT NOT NULL   ,
+user_pw TEXT NOT NULL   ,
+content TEXT    ,
+date TEXT    
+
+)
+2018-11-29 12:33:55: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: table pppwww already exists
+2018-11-29 12:33:59: query.py: DEBUG: execute(): 250: Execute query: CREATE TABLE pppwww (
+idx INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,
+site_name TEXT NOT NULL   ,
+site_url TEXT    ,
+user_id TEXT NOT NULL   ,
+user_pw TEXT NOT NULL   ,
+content TEXT    ,
+date TEXT    
+
+)
+2018-11-29 12:33:59: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: table pppwww already exists
+2018-11-29 12:34:10: query.py: DEBUG: execute(): 250: Execute query: CREATE TABLE pppwww (
+idx INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,
+site_name TEXT NOT NULL   ,
+site_url TEXT    ,
+user_id TEXT NOT NULL   ,
+user_pw TEXT NOT NULL   ,
+content TEXT    ,
+date TEXT    
+
+)
+2018-11-29 12:34:10: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: table pppwww already exists
+2018-11-29 12:36:36: query.py: DEBUG: execute(): 250: Execute query: SELECT pppwww.idx, pppwww.site_name, pppwww.site_url, pppwww.user_id, pppwww.user_pw, pppwww.content, pppwww.date FROM pppwww
+2018-11-29 12:36:59: query.py: DEBUG: execute(): 250: Execute query: SELECT pppwww.idx, pppwww.site_name, pppwww.site_url, pppwww.user_id, pppwww.user_pw, pppwww.content, pppwww.date FROM pppwww
+2018-11-29 12:37:14: query.py: DEBUG: execute(): 250: Execute query: SELECT pppwww.idx, pppwww.site_name, pppwww.site_url, pppwww.user_id, pppwww.user_pw, pppwww.content, pppwww.date FROM pppwww
+2018-11-29 12:38:09: query.py: DEBUG: execute(): 250: Execute query: SELECT users.idx, users.site_name, users.site_url, users.user_id, users.user_pw, users.content, users.date FROM users
+2018-11-29 12:38:09: exception_wrapper.py: ERROR: reraise(): 6: Exception: 
+Traceback (most recent call last):
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 254, in execute
+    raise e
+  File "C:\Users\namki\AppData\Local\Programs\Python\Python36\lib\site-packages\sqlite_orm\database\query.py", line 251, in execute
+    cur.execute(query)
+sqlite3.OperationalError: no such column: users.idx
