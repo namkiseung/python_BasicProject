@@ -4,7 +4,7 @@ from sqlite_orm.table import BaseTable
 from passlib.hash import pbkdf2_sha256
 from  desc_manage import Manage
 #from time import ctime
-import logging
+import logging, os
 import settime
 '''
 선택한 데이터베이스에 대한 연결(connection)을 설정
@@ -15,7 +15,7 @@ SQL 조작을 데이터에 적용한 후 이를 영구적으로 반영하거나(
 '''
 
 def insert_user(__site_name, __site_url, __user_id, __user_pw, __content=''):
-    with Database("C:/Users/namki/Desktop/python_BasicProject/pm-python/shadow.db") as db:
+    with Database(os.getcwd().replace("\\","/")+"/shadow.db") as db:
         #데이터베이스 객체 생성
             user1 = Manage(site_name=__site_name,site_url=__site_url,user_id=__user_id,user_pw=__user_pw,content=__content,date=settime.get_time())
         #데이터베이스 객체 insert
@@ -23,21 +23,21 @@ def insert_user(__site_name, __site_url, __user_id, __user_pw, __content=''):
     pass
 
 def select_user(input_id=''):
-    with Database("C:/Users/namki/Desktop/python_BasicProject/pm-python/shadow.db") as db:
+    with Database(os.getcwd().replace("\\","/")+"/shadow.db") as db:
     #select 출력문        
         for row in db.query(Manage).select().execute():            
             print(row)
         #print(pbkdf2_sha256.hash("asd"))
     return ''
 def create_db():
-    with Database("C:/Users/namki/Desktop/python_BasicProject/pm-python/shadow.db") as db:
+    with Database(os.getcwd().replace("\\","/")+"/shadow.db") as db:
     #테이블 생성
         db.query(Manage).create().execute()
     pass
 
 if __name__=="__main__":    
     #logger configure:
-    logging.basicConfig(filename="C:/Users/namki/Desktop/python_BasicProject/pm-python/error.log", level=logging.DEBUG, format=('%(asctime)s: '
+    logging.basicConfig(filename=os.getcwd().replace("\\","/")+"/error.log", level=logging.DEBUG, format=('%(asctime)s: '
                                                                             '%(filename)s: '
                                                                             '%(levelname)s: '
                                                                             '%(funcName)s(): '
@@ -45,8 +45,8 @@ if __name__=="__main__":
                                                                             '%(message)s'), datefmt="%Y-%m-%d %H:%M:%S")
     #create_db()
     #insert_user(__site_name="i2sec", __site_url="i2sec.co.kr", __user_id="rltmd", __user_pw="0000")
-    
-    select_user()
+    print()
+    #select_user()
     
     
         
