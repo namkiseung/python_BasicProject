@@ -4,7 +4,7 @@ from sqlite_orm.table import BaseTable
 from passlib.hash import pbkdf2_sha256
 import ntplib
 from time import ctime
-import logging
+import logging, os, settime
 
 class Manage(BaseTable):
     __table_name__='users'
@@ -20,33 +20,61 @@ class Manage(BaseTable):
     def verify_login(self, _password):
         return pbkdf2_sha256.verify(_password, self.user_pw)
 
+    def __repr__:
+        return "user_id : %s" % user_id
+
+def insert_user(__site_name, __site_url, __user_id, __user_pw, __content=''):
+    with Database(os.getcwd().replace("\\","/")+"/shadow.db") as db:
+        #ë°ì´í„°ë² ì´ìŠ¤ ê°ì²´ ìƒì„±
+            user1 = Manage(site_name=__site_name,site_url=__site_url,user_id=__user_id,user_pw=__user_pw,content=__content,date=settime.get_time())
+        #ë°ì´í„°ë² ì´ìŠ¤ ê°ì²´ insert
+            db.query().insert(user1).execute()
+    pass
+
+def select_user(input_id=''):
+    with Database(os.getcwd().replace("\\","/")+"/shadow.db") as db:
+    #select ì¶œë ¥ë¬¸        
+        for row in db.query(Manage).select().execute():            
+            print(row)
+        #print(pbkdf2_sha256.hash("asd"))
+    return ''
+
+def create_db():
+    with Database(os.getcwd().replace("\\","/")+"/shadow.db") as db:
+    #í…Œì´ë¸” ìƒì„±
+        db.query(Manage).create().execute()
+    pass    
 if __name__=="__main__":
     #logger configure:
-    logging.basicConfig(filename="C:/Users/namki/Desktop/python_BasicProject/pm-python/error.log", level=logging.DEBUG, format=('%(asctime)s: '
+    
+    logging.basicConfig(filename=os.getcwd().replace("\\","/")+"/error.log", level=logging.DEBUG, format=('%(asctime)s: '
                                                                             '%(filename)s: '
                                                                             '%(levelname)s: '
                                                                             '%(funcName)s(): '
                                                                             '%(lineno)d: '
                                                                             '%(message)s'), datefmt="%Y-%m-%d %H:%M:%S")
+    #create_db()
+    #insert_user(__site_name="i2sec", __site_url="i2sec.co.kr", __user_id="rltmd", __user_pw="0000")
+    #select_user()
                         
     with Database("C:/Users/namki/Desktop/python_BasicProject/pm-python/shadow.db") as db:
         try:
             c = ntplib.NTPClient()
             response = c.request('europe.pool.ntp.org',version=3)
-            print(ctime(response.tx_time)) #½Ã°£Ãâ·Â
+            print(ctime(response.tx_time)) #ì‹œê°„ì¶œë ¥
         except ntplib.NTPException:
             print(ctime())
         
-        #Å×ÀÌºí »ı¼º
+        #í…Œì´ë¸” ìƒì„±
         #db.query(Manage).create().execute()
 
-        #µ¥ÀÌÅÍº£ÀÌ½º °´Ã¼ »ı¼º
+        #ë°ì´í„°ë² ì´ìŠ¤ ê°ì²´ ìƒì„±
         #user1 = Manage(site_name="naver",site_url="www.naver.com",user_id="rltmd1004",user_pw="0000",content='',date=ctime(response.tx_time))
         
-        #µ¥ÀÌÅÍº£ÀÌ½º °´Ã¼ insert
+        #ë°ì´í„°ë² ì´ìŠ¤ ê°ì²´ insert
         #db.query().insert(user1).execute()
         
-        #select Ãâ·Â¹®
+        #select ì¶œë ¥ë¬¸
         for row in db.query(Manage).select().execute():
             print(row)
         print(pbkdf2_sha256.hash("asd"))
