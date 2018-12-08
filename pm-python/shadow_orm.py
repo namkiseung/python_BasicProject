@@ -14,7 +14,7 @@ SQL 조작을 데이터에 적용한 후 이를 영구적으로 반영하거나(
 데이터베이스에 대한 연결을 닫음(close)
 '''
 def open_comment(): #CRUD comment
-    print('''########################PASSWORD MANAGE PROGRAM Console Box\n[1] READ \n[2] CREATE  \n[3] UPDATE \n[4] DELETE########################''')
+    print('''########################PASSWORD MANAGE PROGRAM Console Box\n[1] READ \n[2] CREATE  \n[3] UPDATE \n[4] DELETE\n########################''')
     pass 
 
 def read(data=''): #CRUD comment
@@ -25,48 +25,69 @@ def read(data=''): #CRUD comment
             return 'None'
         else:
             pass
-    pass#'''#############[1] SELECT Site-name \n[2] SELECT userID########################'''
+    pass
 
 def create_comment(): #CRUD comment
     return "Enter the following \n(1)Site-Name | (2) Site-URL | (3) UserID | (4) UserPW \n"
 
-def get_list():
+def get_list_all():
     print("#############Site List in DateBase table########################")
-    return '''[1] gabia \n[2] naver \n[3] daum \n[4] google \n[5] lol \n[6] i2sec \n[7] samsung \n[8] LG \n[9] NIT service \n[10] SK infosec \n[11] A3 \n[12] Cyberone'''
+    for x in select_user():        
+        print("num : %d  |  hostname : %s | hostURL : %s | ID : %s | Date : %s |" % (x[0], x[1], x[2], x[3], x[6]))
+    print("########################################################")
+    pass
+def get_list_pw(t_name):
+    print("#############Site List in DateBase table########################")
+    x=select_user_pw(t_name)
+    print("RESULT : num : %d  |  hostname : %s | hostURL : %s | ID : %s | PW : %s | Date : %s |" % (x[0], x[1], x[2], x[3], x[4].translate({ ord('4'): '@' }), x[6]))
+    print("########################################################")
+    pass
 
 if __name__=="__main__":
+    num_list=[1,2,3,4,5,6,7,8,9]
     while True:
         print(open_comment())
         select_num=input(">>")
         if str(select_num) == str(1): #READ of CRUD
-            print(get_list())
-            temp=input(">>")
-            #print(read(temp))
+            try:
+                get_list_all()
+                temp=input(">> site name : ")
+                if temp != '' and temp != None: 
+                    get_list_pw(temp)
+                elif temp == "0" and temp == 0:
+                    pass
+                else:
+                    pass
+            except:
+                pass
+            finally:
+                pass
         elif str(select_num) == str(2): #CREATE of CRUD
             print(create_comment())
-            __site_name=input(">> Site name : ")
-            __site_url=input(">> Site url : ")
-            __user_id=input(">> UserID : ")
-            __user_pw=input(">> UserPW : ")
+            _site_name=input(">> Site name : ")
+            _site_url=input(">> Site url : ")
+            _user_id=input(">> UserID : ")
+            _user_pw=input(">> UserPW : ")            
+            insert_user(__site_name=_site_name, __site_url=_site_url, __user_id=_user_id, __user_pw=_user_pw, __content='')
             #변경된 표준출력
-            print("output : {} \noutput : {} \noutput : {} \noutput : {} \n".format(__site_name,__site_url, __user_id, __user_pw))
+            print("output : {} \noutput : {} \noutput : {} \noutput : {} \n".format(_site_name,_site_url, _user_id, _user_pw))
         elif str(select_num) == str(3): #UPDATE of CRUD
-            print(get_list())
-            print(">> Site name : %s" % ("test site name"))
-            print(">> Site url : %s" % ("test site url"))
-            __user_id=input(">> UserID : ") #입력받은 ID검증 후 수정 ok
-            __user_pw=input(">> UserPW : ")
+            #get_list_all()  #list all
+            __h_name=input(">> hostname : ") #입력받은 ID검증 후 수정 ok
+            update_info(__h_name)
             #변경된 내용출력 -> 이메일 or 표준출력
-            print("output : {} \noutput : {} \noutput : {} \noutput : {} \n".format(__site_name,__site_url, __user_id, __user_pw))
+            #print("output : {} \noutput : {} \noutput : {} \noutput : {} \n".format(__site_name,__site_url, __user_id, __user_pw))
         elif str(select_num) == str(4): #DELETE of CRUD
-            print(get_list())
-            del_num = input("Enter the number to Delete >>")
-            if del_num in [str(1),str(2)]:
-                del_text=input("Follow Text : \"DELETE\" >>")
+            get_list_all()
+            del_num = input("What number do you want to delete? >>")            
+            if del_num != '' and del_num != None: 
+                del_text=input("Enter the word as it is. \"DELETE\" : ")
                 if del_text != "DELETE":
+                    print("[+] failed Removed")
                     break
                 else:
                     #삭제
+                    delete_site(del_num)
                     print("[+] Success Removed")
                     pass
             else:
