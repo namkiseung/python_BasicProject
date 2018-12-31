@@ -1,14 +1,19 @@
+# -*- coding: cp949 -*-
 import requests as re
 from bs4 import BeautifulSoup as bs
 import os,time
 
-#í´ë¦¬ì–´ëŸ°ìŠ¤ ë² ìŠ¤íŠ¸ ìƒí’ˆ : https://front.wemakeprice.com/special/5000265
-#í´ë¦¬ì–´ëŸ°ìŠ¤ ì˜¤ëŠ˜ ìƒí’ˆ : https://front.wemakeprice.com/special/5000254
-#ìŠˆí¼ íˆ¬ë°ì´ ìƒí’ˆ : https://front.wemakeprice.com/special/5000119
-#90%í• ì¸ : https://front.wemakeprice.com/special/5000257
+#Å¬¸®¾î·±½º º£½ºÆ® »óÇ° : https://front.wemakeprice.com/special/5000265
+#Å¬¸®¾î·±½º ¿À´Ã »óÇ° : https://front.wemakeprice.com/special/5000254
+#½´ÆÛ Åõµ¥ÀÌ »óÇ° : https://front.wemakeprice.com/special/5000119
+#90%ÇÒÀÎ : https://front.wemakeprice.com/special/5000257
 
-def crawl_init(url):    
-    res = re.get(url)
+def crawl_init(url):
+    request_headers = {
+        'User-Agent': ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+                       '(KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36')
+    }
+    res = re.get(url , headers=request_headers)
     soup = bs(res.text, "html.parser")
     return soup
 def get_product(url):
@@ -17,13 +22,13 @@ def get_product(url):
     ago_price=list()
     after_price=list()
     soup = crawl_init(url)
-    for x in soup.findAll("p",{"class":"text"}): #ì œí’ˆ ëª… 
+    for x in soup.findAll("p",{"class":"text"}): #Á¦Ç° ¸í 
        product_name.append(x.text)
-    for x in soup.findAll("span",{"class":"num"}): #í• ì¸ ì „ êµ¬ë§¤ ê°€ê²©
+    for x in soup.findAll("span",{"class":"num"}): #ÇÒÀÎ Àü ±¸¸Å °¡°Ý
        ago_price.append(x.text)
-    for x in soup.findAll("span",{"class":"sale"}): #í• ì¸ ìœ¨
+    for x in soup.findAll("span",{"class":"sale"}): #ÇÒÀÎ À²
        product_sale.append(x.text)
-    for x in soup.findAll("em",{"class":"num"}): #í• ì¸ëœ ì‹¤ì œ êµ¬ë§¤ê°€ê²©
+    for x in soup.findAll("em",{"class":"num"}): #ÇÒÀÎµÈ ½ÇÁ¦ ±¸¸Å°¡°Ý
        after_price.append(x.text)
     return [product_name, product_sale, ago_price, after_price]
 
@@ -39,19 +44,19 @@ if __name__=="__main__":
             print(url)
             v_data=get_product(url)
             if url == clear_best: #tag name
-                tag_name="ë² ìŠ¤íŠ¸ ìƒí’ˆ"
+                tag_name="º£½ºÆ® »óÇ°"
             elif url == clear_today: #tag name
-                tag_name="ì˜¤ëŠ˜ì˜ ìƒí’ˆ"
+                tag_name="¿À´ÃÀÇ »óÇ°"
             elif url == super_today: #tag name
-                tag_name="ìŠˆí¼íˆ¬ë°ì´"
+                tag_name="½´ÆÛÅõµ¥ÀÌ"
             elif url == discount_ninety: #tag name
-                tag_name="90%í• ì¸ìœ¨"
+                tag_name="90%ÇÒÀÎÀ²"
             print("#### {} ####".format(tag_name))
             for x in range(len(v_data[0])):
-                print("{} : í• ì¸ìœ¨({}) ê°€ê²© : {}ì› --> {}ì›".format(v_data[0][x], v_data[1][x], v_data[2][x], v_data[3][x]))
-                with open("ìœ„ë©”í”„í• ì¸ì •ë³´.txt","a") as f:
+                print("{} : ÇÒÀÎÀ²({}) °¡°Ý : {}¿ø --> {}¿ø".format(v_data[0][x], v_data[1][x], v_data[2][x], v_data[3][x]))
+                with open("À§¸ÞÇÁÇÒÀÎÁ¤º¸.txt","a") as f:
                     f.write("#### {} ####".format(tag_name))
-                    f.write("{} : í• ì¸ìœ¨({}) ê°€ê²© : {}ì› --> {}ì›".format(v_data[0][x], v_data[1][x], v_data[2][x], v_data[3][x]))
+                    f.write("{} : ÇÒÀÎÀ²({}) °¡°Ý : {}¿ø --> {}¿ø".format(v_data[0][x], v_data[1][x], v_data[2][x], v_data[3][x]))
                     f.write("\n")
         except IndexError as s:
             #print(s)
