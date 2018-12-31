@@ -1,0 +1,50 @@
+○○○○○○○○○○○○○○○○○○○○○○○○○관련기사
+中 6월 정보보안 취약점 실태 분석해보니...화웨이 등 포함 - 보안뉴스
+(url : https://www.boannews.com/media/view.asp?idx=55700)
+내용 : 중국 업체 궈덴루이츠위앤징정보기술(??瑞??景信息技?)의 전력 안전관리정보시스템에서는 ‘Hibernate SQL 주입 취약점(CNVD-2017-06657)’이 탐지됐다. 공격자는 비밀번호를 찾아내서 중요한 정보들을 빼낼 수 있다. 
+○○○○○○○○○○○○○○○○○○○○○○○○○  서론
+이런 보안관점에서 ORM 사용은 개발자들에게 보안취약점 을 해결하는 필수방안으로 여겨지고 있다. ORM이란, 객체형 데이터(Java의 Object)와 관계형 데이터(관계형 데이터베이스 의 테이블) 사이에서 데이터를 매핑(Mapping)하는 기술을 말 한다. 이는 PreparedStatement클래스 기반으로 설계 되어 SQL Injection 공격 방어에 핵심 솔루션으로 꼽힌다. ORM을 이용하는 것이 SQL Injection을 방어하는 좋은 방법이긴 하지 만, 이것만으로 충분하지 않다. 본 논문은 ORM을 잘못 사용하였을 경우 여전히 보안취약 점에 노출 될 수 있으며, SQL Injection 방어에 완벽하지 않음 을 분석하고 올바른 사용 가이드를 제시한다
+
+○○○○○○○○○○○○○○○○○○○○○○○○○ 그래서 ORM은?
+SQL을 훨씬 더 프로그램적으로 쉽게 접근할 수 있게 만드는 방식이다. SQL을 읽기, 쓰기, 조회를 위한 자바 오브젝트에 데이터베이스 테이블을 매핑(Mapping)하는 기술을 말한다. ORM은 SQL Injection을 방지하는 좋은 솔루션으로 각광 받고 
+있다. 
+ 
+○○○○○○○○○○○○○○○○○○○○○○○○○  Hibernate 취약점 분석
+Hibernate는 스토리지와 ORM을 통한 Java domain objects 의 정보 검색/수정을 용이하게 한다. 하지만 Hibernate가 SQL Injection 공격을 방지한다는 것은 ORM 솔루션에 대한 오해다. Hibernate는 "Native SQL"의 사용을 허용하며, HQL이라는 독 자적인 쿼리 언어를 정의하고 있다. 따라서 고전적인 SQL Injection과 HQL(ORM) Injection이 가능하다. 
+ 
+○○○○○○○○○○○○○○○○○○○○○○○○○  시큐어 코딩
+(○취약한 코드)  //아래 코드에서는 "orderId"와 "author"가 사전에 검증되지 않 거나 처리되지 않았다면, SQL/HQL Injection 공격에 취약하다.
+List results = session.createQuery("from Orders as orders where orders.id = " + currentOrder.getId()).list(); 
+List results = session.createSQLQuery("Select * from Books where author = " + book.getAuthor()).list(); 
+
+(○안전한 사용법) //위의 코드의 데이터에 사용자 입력이 사용된다면 사전검증 또는 escape 처리가 되지 않았거나 잘못된 데이터베이스 코 드를 포함할 수 있다. 하지만 JDBC에 의해 실행될 수 있는 코드가 아닌 데이터로 escape 처리가 되기 때문에 안전하다. 
+
+/* Positional parameter in HQL */ 
+Query hqlQuery = session.createQuery("from Orders as or ders where orders.id = ?"); 
+List results = hqlQuery.setString(0, "123-ADB-567QTWYTFDL").list(); 
+ 
+/* named parameter in HQL */ 
+Query hqlQuery = session.createQuery("from Employees a s emp where emp.incentive > :incentive"); 
+List results = hqlQuery.setLong("incentive", new Long(1008272016년 동계학술발표회 논문집00)).list(); 
+ 
+/* named parameter list in HQL */ 
+List items = new ArrayList();  
+items.add("book"); 
+items.add("clock"); 
+items.add("ink"); 
+List results = session.createQuery("from Cart as cart whe re cart.item in (:itemList)").setParameterList("itemList", ite ms).list(); 
+ 
+/* JavaBean in HQL */ 
+Query hqlQuery = session.createQuery("from Books as b ooks where book.name = :name and book.author = :auth or"); 
+List results = hqlQuery.setProperties(javaBean).list(); 
+//ass umes javaBean has getName() & getAuthor() methods. 
+ 
+/* Native-SQL */ 
+Query sqlQuery = session.createSQLQuery("Select * from Books where author = ?"); 
+List results = sqlQuery.setString(0, "Charles Dickens").list( ); 
+
+○○○○○○○○○○○○○○○○○○○○○○○○○ 결론
+ORM을 잘못 사용하였을 경우 SQL Injection에 취약하다는 것을 입증하였다. 그리고 대처방안(시큐어코딩)을 제시하여 올바른 ORM 사용법을 제시하였다
+
+○○○○○○○○○○○○○○○○○○○○○○○○○참고
+https://www.eiric.or.kr/community/post2_cseric.php?m=view&gubun=201612&num=6893&pg=1&seGubun=3&seGubun1=&SnxGubun=%C6%F7%BD%BA%C5%CD&searchBy=Subject&searchWord=orm

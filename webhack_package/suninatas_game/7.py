@@ -1,6 +1,6 @@
 #-*- coding:utf-8 -*-
 from selenium import webdriver
-import urllib2
+#import urllib2
 import urllib, requests
 
 if __name__=="__main__":
