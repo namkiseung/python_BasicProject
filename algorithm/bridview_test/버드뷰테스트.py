@@ -33,7 +33,7 @@ def manage_overlap(list_data):
 
 def get_file_lines():
     data=''
-    with open("C:/Users/namki/Downloads/버드뷰_500x10.txt", "r") as f:
+    with open("C:/Users/namki/Desktop/python_BasicProject/algorithm/bridview_test/버드뷰_500x10.txt", "r") as f:
         data=f.read()
     return data
 
@@ -94,7 +94,7 @@ if __name__=="__main__":
         data=rendom_str() #['Z', 'C', 'Y', 'A', 'F', 'X', 'U', 'Q', 'K', 'G']
         print("기준 : {}".format(data))
         pass_person=list()
-        with open("C:/Users/namki/Desktop/버드뷰테스트/버드뷰_500x10.txt", "r") as f:
+        with open("C:/Users/namki/Desktop/python_BasicProject/algorithm/bridview_test/버드뷰_500x10.txt", "r") as f:
             res = f.readlines()
             for x in range(len(res)): #파일에서 가져온 row 수 만큼 반복해서 비교
                 for y in data:
