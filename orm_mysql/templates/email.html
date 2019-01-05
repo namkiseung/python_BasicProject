@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<body>
+
+ <h1>Email System</h1>
+
+ <h1>{{ content }}</h1>
+
+ <form action="/email" method=post>
+  <dl>
+   <dt>Email_Sender:</dt>
+
+   <dd>
+    <input type="text" name=email_sender value="" />
+   </dd>
+
+   <dt>Email_Receiver:</dt>
+
+   <dd>
+    <input type="text" name=email_receiver value="" />
+   </dd>
+
+   <dt>Content:</dt>
+   <dd>
+    <input type="text" name=email_content value="">
+   </dd>
+  </dl>
+  <p>
+   <input type=submit value=SEND>
+  </p>
+ </form>
+
+</body>
+</html>
