@@ -1,0 +1,21 @@
+mysql> desc managesite;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| idx      | int(11)      | NO   | PRI | NULL    | auto_increment |
+| sitename | varchar(30)  | NO   | UNI | NULL    |                |
+| siteurl  | varchar(100) | YES  |     | NULL    |                |
+| snsauth  | varchar(20)  | YES  |     | null    |                |
++----------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> desc pwd_identity;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| idx      | int(11)      | NO   | PRI | NULL    | auto_increment |
+| userid   | varchar(30)  | NO   |     | NULL    |                |
+| userpw   | varchar(100) | YES  |     | NULL    |                |
+| rdate    | date         | YES  |     | NULL    |                |
+| sitename | varchar(30)  | NO   | MUL | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
