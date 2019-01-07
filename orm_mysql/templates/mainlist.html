@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>mainlist</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+<script>
+function id_sendRequest(idx){
+//propmt 창 띄워서 id받기
+var name = prompt('Please enter the ID of the site you are subscribed to.');
+var httpRequest = new XMLHttpRequest(); //Ajax 객체 만들기
+httpRequest.onreadystatechange = ()=>{
+	if(httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200){
+		console.log("servering...");
+		//alert(httpRequest.responseText);
+
+		document.getElementById("test").innerHTML += JSON.parse(httpRequest.responseText);
+	}
+};
+httpRequest.open("GET", `/index/check/${idx}/${name}`, true);
+//httpRequest.setRequestHeader("test", "123");
+httpRequest.send();
+}
+
+//facebook의 가입된 아이디 가져오기
+//facebook가입된 아이디와 propmt창 id 비교
+
+//(맞으면) /index/view 경로로 이동
+//(틀리면) 아무일 없던걸로
+
+</script>
+<!-- <h1>Login</h1> -->
+{% if login_chk == None %}
+ {% include 'header.html' %}
+{% else %}
+ <a href="{{ url_for('login') }}">로그아웃</a>
+{% endif %}
+<span id="test">none</span>
+{% for item in site_info %}
+ 	<div>
+	 {{loop.index}}
+	 {{ item.sitename }}
+	 <button onclick="id_sendRequest({{item.idx}})">보기</button><!-- <a href="/index/check/{{item.idx}}">보기</a> -->
+	 <a href="">수정</a>
+	 <a href="">삭제</a></div>
+ {% endfor %}
+ 
+</body>
+</html>

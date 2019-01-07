@@ -1,13 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-</head>
-<body>
-        <form name="frmNIDLogin" action="http://172.30.1.46:5000/chk" method="post">
+<form name="frmNIDLogin" action="{{ url_for('login_chk') }}" method="post">
 				<fieldset class="login_form">
 					<legend class="blind">로그인</legend>
 					<div class="id_area">
@@ -34,5 +25,7 @@
 					</fieldset>
 					</form>
 
-</body>
-</html>
+					<!-- <script>
+					$(document).ready(function(){
+  					$("#label_id_area").focus();
+					});</script> -->

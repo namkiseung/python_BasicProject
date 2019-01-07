@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 import datetime
+from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db.db"
-
 db = SQLAlchemy(app)
 
 def get_day():
@@ -34,8 +35,23 @@ def user_add(sitename='', snsauth='', url='', userid='', userpw=''):
     namki = Site_info(sitename, snsauth, url, userid, userpw)
     db.session.add(namki)
     db.session.commit()
+    pass
 
-def user_del(index):
+def update(sitename='', snsauth='', url='', userid='', userpw=''):
+    namki = Site_info.query.filter().first()
+    namki.sitename = sitename
+    namki.snsauth = snsauth
+    namki.url = url
+    namki.userid = userid
+    namki.userpw = userpw
+    db.session.add(namki)
+    db.session.commit()
+    pass
+
+def user_del(sitename):
+    namki = Site_info.query.filter(Site_info.sitename==sitename).first()
+    db.session.delete(namki)
+    db.session.commit()
     pass
 
 
