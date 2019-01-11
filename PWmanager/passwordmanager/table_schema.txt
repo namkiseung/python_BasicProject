@@ -1,0 +1,10 @@
+CREATE TABLE site_info (
+        idx INTEGER NOT NULL,
+        sitename VARCHAR(30),
+        snsauth VARCHAR(10),
+        url VARCHAR(500),
+        userid VARCHAR(100),
+        userpw VARCHAR(150),
+        rdate VARCHAR(30),
+        PRIMARY KEY (idx)
+);
