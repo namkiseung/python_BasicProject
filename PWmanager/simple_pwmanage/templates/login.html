@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+<!-- action="{{ url_for('login_chk') }}" -->
+        <form action="http://{{ip}}:5000/login_chk" method="post">
+				<fieldset class="login_form">
+					<legend class="blind">로그인</legend>
+					<div class="id_area">
+						<div class="error_id" id="err_empty_id" style="display:none" tabindex="0">아이디를 입력해주세요.</div>
+						<div class="input_row" id="id_area">
+							<span class="input_box">
+								<label for="id" id="label_id_area" class="lbl"   >아이디</label>
+								<input type="text" id="id" name="id" accesskey="L" placeholder="아이디" class="int" maxlength="41" value="">
+							</span>
+							
+						</div>
+					</div>
+					<div class="pw_area">
+						<div class="error_pw" id="err_empty_pw" style="display:none" tabindex="0">비밀번호를 입력해주세요.</div>
+						<div class="input_row" id="pw_area">
+							<span class="input_box">
+								<label for="pw" id="label_pw_area"  class="lbl">비밀번호</label>
+								<input type="password" id="pw" name="pw" placeholder="비밀번호" >
+							</span>
+							
+						</div>
+					</div>
+					<input type=submit value="login"/>
+					</fieldset>
+					</form>
+
+</body>
+</html>

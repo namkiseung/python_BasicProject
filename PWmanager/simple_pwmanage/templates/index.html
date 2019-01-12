@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+    <h1> Logined </h1> <button onlick='javascript:history.go(-1);'>뒤로가기</button>
+    <button onclick="logout()">로그아웃</button>
+    <button onclick="add_info()">추가</button>
+    <script>
+    //로그아웃 버튼 클릭시 동작 이벤트
+    function logout(){
+        location.href='{{ url_for("logout") }}';
+    }
+    //보기 눌렀을때 Ajax 작동(아이디 입력받고 비번출력함.)
+    function view(num, sitename){
+        // 데이터를 입력받자.(프롬프트 띄운다)
+        var userid = prompt('사이트 계정을 입력하도록 하시오');
+        console.log(userid);
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+            if (http.readyState == XMLHttpRequest.DONE && http.status == 200 ) {
+                document.getElementById('p'+num).innerText=http.responseText;
+            }
+        };
+        http.open("GET", `/view_route/${sitename}/${userid}`, true);
+        http.send();
+    }
+    //추가버튼 클릭시 데이터 입력받고, DB에 저장하기
+    function add_info(){
+        location.href='{{ url_for("add_info") }}';
+    }
+    
+    </script>
+    
+    <!-- 사이트 정보 리스트 출력구간 -->
+    <div> 
+        {% for data in sitelist %}
+            <ol>
+                {{ loop.index }}. {{data.sitename}}({{data.url}})
+                <button onclick="view('{{ loop.index }}', '{{ data.sitename }}');">보기</button>
+                <button><a href="http://{{ip}}:5000/update_info/{{data.idx}}">수정</a></button>
+                <button><a href="http://{{ip}}:5000/del?sitename={{data.sitename}}">삭제</a></button>
+                <br>
+                <p id="p{{ loop.index }}"></p>
+            </ol>
+        {% endfor %}
+    </div>
+</body>
+</html>
