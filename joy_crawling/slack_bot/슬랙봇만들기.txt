@@ -8,7 +8,7 @@ Select Permission Scopes¿¡¼­
 >import json
 >from flask import Flask, request, make_response
 >from slacker import Slacker
->token = "xoxb-524827631186-527044722293-sIMCBzRsXr5KBtGLV0vhzMdp"
+>token = "{}"
 >slack = Slacker(token)
 >slack.chat.post_message("#temp","hello world");
 
