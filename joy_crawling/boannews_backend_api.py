@@ -71,14 +71,14 @@ if __name__=="__main__":
     for url_item in boannews_url_lists:
         origin_obj=get_obj_parserd(url_item)
         print(get_boannews(origin_obj))
-    
+    '''
     for url_item in hacknews_url_lists:
         origin_obj=get_obj_parserd(url_item)
         print("")
         print("length : %d, article-title : %s"%(len(get_thehacknews(origin_obj)), url_item))
         print("")
         print(get_thehacknews(origin_obj))
-    
+    '''
     #res = get_obj_parserd(hacknew_feed)
     #print("")
     #print("length : %d, article-title : %s"%(len(get_feed_hacknews(res)), hacknew_feed))

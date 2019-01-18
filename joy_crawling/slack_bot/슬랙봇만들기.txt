@@ -1,0 +1,79 @@
+#1접속
+https://api.slack.com/apps/
+봇만들고 Oauth에서 access TOken받기
+그리고 이 봇이 일반사용자처럼 대화하기 위해 아래 권한설정
+Select Permission Scopes에서
+>chat:write:user 등록
+#1.1 슬랙봇으로 슬랙에 메시지 보내기
+>import json
+>from flask import Flask, request, make_response
+>from slacker import Slacker
+>token = "xoxb-524827631186-527044722293-sIMCBzRsXr5KBtGLV0vhzMdp"
+>slack = Slacker(token)
+>slack.chat.post_message("#temp","hello world");
+
+#2메뉴
+Event Subscriptions Enable해주기
+그리고
+Subscribe to Bot Events에서 이벤트네임을 app_mention으로하기.
+
+#3로컬서버 만들기
+flaks사용해서 기본 최상위디렉터리 만들기
+#4 원격서버로 변환
+>npm install ngrok -g
+설치 후에 ngrok을 이용해 우리의 http 80포트로 들어오는
+데이터를 로컬pc의 1111포트로 터널링을 하자.
+>ngrok http 1111
+그러면 나오는 공인ip를 슬랙봇의 요청URL로 만들자
+
+#4 사용자에게 응답하고자 하는 함수를 flask에서 만듬
+--------------------------------------------
+@app.route('/slack', methods=['GET', 'POST'])
+def hears():
+    #slack api는 json으로 우리에게 보냄
+    slack_event = json.loads(request.data)
+    #우리서버가 정상인지 확인하기 위해 "challenge"에 대한 이벤트를 보내니까 이걸 처리하자.
+    if "challenge" in slack_event:
+        #그 challenge값을 그대로 슬랙에게 보내줘서 내가 정상이라고 말하자
+        return make_response(slack_event["challenge"], 200,
+                             {"content_type":"application/json"})
+--------------------------------------------
+#5 그렇게 만든 경로를 Event Subscribe에 URL로 등록
+>http://47cd3e69.ngrok.io/slack
+#6 이벤트핸들러만들기
+--------------------------------------------
+def get_answer():
+    return "hihihihihi"
+def event_handler(event_type, slack_event):
+    if event_type == "app_mention":
+        #슬랙앱을 호출한 위치 가져오기
+        channel = slack_event["event"]["channel"]
+        #사용자에게 응답할 텍스트 받아오자
+        text = get_answer()
+        #Slacker를 이용해 메시지를 해당채널로 보내자
+        slack.chat.post_message(channel, text)
+        return make_response("[+] This is app_mention", 200,
+                             message = "[%s] not found event_handler" % event_type)
+    return make_response(message, 200, {"X-Slack-No-Retry": 1})
+@app.route('/slack', methods=['GET', 'POST'])
+def hears():
+    #slack api는 json으로 우리에게 보냄
+    slack_event = json.loads(request.data)
+    #우리서버가 정상인지 확인하기 위해 "challenge"에 대한 이벤트를 보내니까 이걸 처리하자.
+    if "challenge" in slack_event:
+        #그 challenge값을 그대로 슬랙에게 보내줘서 내가 정상이라고 말하자
+        return make_response(slack_event["challenge"], 200,
+                             {"content_type":"application/json"})
+    #슬랙의 이벤트를 처리하자
+    if "event" in slack_event:
+        #event값이 존재하는 경우 type확인 우리는 app_mention으로 했다.
+        event_type = slack_event["event"]["type"]
+        #이벤트 헨들러 만들어서 type보내자 그러면 핸들이 가능
+        return event_handler(event_type, slack_event)
+    #이벤트 존재 안할떄는 오류를 띄우자(404)
+    return make_response("not event at slack request by namki_bot", 404, {"X-Slack-No-Retry": 1})
+--------------------------------------------
+#7봇을 해당채널에 초대
+#8
+참고
+https://www.youtube.com/watch?v=fIuATORjCmo&t=20s

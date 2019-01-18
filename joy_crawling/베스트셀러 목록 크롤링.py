@@ -7,12 +7,12 @@ f = urlopen(url)
 bs_obj = BeautifulSoup(f, "html.parser")
 
 ol = bs_obj.find("ol", {"class":"thumb_list"})
-for x in bs_obj.find("ol", {"class":"thumb_list"}):
-    print(x)
-ol2 = bs_obj.find("ol", {"start":"6"})
+#for x in bs_obj.find("ol", {"class":"thumb_list"}):
+ #   print(x)
+#ol2 = bs_obj.find("ol", {"start":"6"})
 
 for i in ol.find_all("img"):
     print(i.get('alt'))
 
-for i in ol2.find_all("img"):
-    print(i.get('alt'))
+#for i in ol2.find_all("img"):
+ #   print(i.get('alt'))
