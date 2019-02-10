@@ -5,7 +5,7 @@ import urllib, requests
 
 if __name__=="__main__":
     __id=input("id :")
-    __pw=input("pw :")
+    __pw="zzzzzzzz"#input("pw :")
     path = "C:\chromedriver.exe"
     driver = webdriver.Chrome(path)
     driver.get("http://suninatas.com/main/main.asp")
