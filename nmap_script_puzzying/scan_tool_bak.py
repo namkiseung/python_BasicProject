@@ -11,7 +11,7 @@ rule_5="Nmap scan report for"
 rule_6="Host is up."
 rule_7="All 100 scanned ports on"
 rule_8="Starting Nmap 7.60 ( https://nmap.org ) at"
-rule_9="D-chain"
+
 class Scan_duplication(threading.Thread):
     def __init__(self, time):
         super(Scan_duplication, self).__init__()
@@ -58,14 +58,13 @@ def processing(ip,sport,dport,fname,_cmd,startTime,gettime):
         p = subprocess.Popen(_cmd, shell=True, 
             stdout=subprocess.PIPE, 
             stderr=subprocess.STDOUT)
-        for line in p.stdout.readlines():
-            line = line.decode('euc-kr')
-            #if line != rule_1 and line != rule_2 and line != rule_3 and line != rule_4 and line != rule_5 and line != rule_6 and line != rule_7 and line != rule_8:
-            if line.find(rule_1) == -1 and line.find(rule_2) == -1 and line.find(rule_3) == -1 and line.find(rule_4) == -1 and line.find(rule_5) == -1 and line.find(rule_6) == -1 and line.find(rule_7) == -1 and line.find(rule_8) == -1 and line.find(rule_9) == -1:
-                with open("./tmp/{}.txt".format(fname),"a") as files:
-                    print(line)#print(line.decode('euc-kr')) #result.append(line.decode('euc-kr'))
+        with open("./tmp/{}.txt".format(fname),"a") as files:
+            for line in p.stdout.readlines():
+                line = line.decode('euc-kr')
+                if line != rule_1 and line != rule_2 and line != rule_3 and line != rule_4 and line != rule_5 and line != rule_6 and line != rule_7 and line != rule_8:
+                    print(line.decode('euc-kr')) #result.append(line.decode('euc-kr'))
                     files.write("{}".format(line))
-                #files.close()
+            #files.close()
     except Exception as ex:
         print("[*] error", ex)
     finally:
