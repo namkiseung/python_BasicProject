@@ -1,0 +1,66 @@
+>>Prepare
+-apt update & upgrade
+-install proxychains and config proxychain (etc. file name of place /etc/proxychains)
+-install tor
+
+
+
+>>referr
+#포트스캔 에러
+https://m.blog.naver.com/PostView.nhn?blogId=nds239&logNo=220463980726&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+https://cnpnote.tistory.com/entry/PYTHON-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%97%90%EC%84%9C-connection-refused%EC%98%A4%EB%A5%98%EA%B0%80-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9E%85%EB%8B%88%EA%B9%8C-%EC%86%8C%EC%BC%93
+https://security.stackexchange.com/questions/102442/nmap-output-to-file-different-than-interactive-output
+http://pchero21.com/?p=888
+
+
+#포트스캔 옵션 정리
+https://4lugin.tistory.com/136
+https://www.solanara.net/solanara/nmap
+http://charlie0301.blogspot.com/2018/04/socketio-mqtt.html
+
+#What could cause socket ConnectException: Connection timed out?
+https://stackoverflow.com/questions/3877572/what-could-cause-socket-connectexception-connection-timed-out
+#파이썬에서 "connection refused"
+https://cnpnote.tistory.com/entry/PYTHON-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%97%90%EC%84%9C-connection-refused%EC%98%A4%EB%A5%98%EA%B0%80-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9E%85%EB%8B%88%EA%B9%8C-%EC%86%8C%EC%BC%93
+
+#엘라스틱 IP
+https://easy-h.tistory.com/18
+https://ndb796.tistory.com/258
+https://kamang-it.tistory.com/entry/awsElastic-IP%EB%A1%9C-%EA%B3%A0%EC%A0%95-%EC%95%84%EC%9D%B4%ED%94%BC-%EC%A3%BC%EA%B8%B0
+
+
+
+#포트스캔이란
+https://asecurity.dev/2017/02/nmap-%EC%98%A4%ED%94%88-%EC%8A%A4%EC%BA%94-%EC%8A%A4%ED%85%94%EC%8A%A4-%EC%8A%A4%EC%BA%94-%EC%9E%90%EC%84%B8%ED%9E%88-%EB%93%A4%EC%97%AC%EB%8B%A4-%EB%B3%B4%EA%B8%B0/
+
+
+#tcpdump 분석
+https://comfun.tistory.com/entry/tcpdump-packet-capture-%EB%B6%84%EC%84%9D
+
+
+#도린이
+https://jhle-e.github.io/post/docker/docker_study_1/
+
+
+>>trouble shooting
+Q. Library error name of the lib...'libproxychains.so.3'
+->snap을 이용해 관리중인 명령어를 직접 exported(환경변수설정)으로 해결
+ex) export PATH=$PATH:/bin/nmap
+->또한, nmap재설치하기도 헀음
+Q. Elastic IP address could not be associated
+->할당이 가능한 외부 주소를 인스턴스와 매핑하여 해결
+Q. /etc/proxychain.conf Error
+->실제 존재하는 프록시를 거치는지 확인하여 해결
+Q.특정 옵션이 안됨(-sT, -sS)
+->apt remove nmap;apt install nmap으로 해결
+Q. timeout / socket confused
+->timeout은 호스트 아이피에 대해 응답 수신이 어려웠기 때문에 고정IP로 해결함
+->confused는 권한 상관없이 거절되는 문제로 아직 해결중
+Q. segmentation fault (core dump)
+->해결중이긴한데, 접근해서는 안되는 메모리 영역을 참조해서 발생한다고 나오긴하는데
+현재까지 판단되는것은 array크기 보다 큰 index를 엑세스해서 그런거 같음.
+어디서? 응답 데이터를 받을때 *(어퍼스트로피)값으로 할당하는것을 ?(물음표)로 대체하여 길이를 지정해보자
+sed -i bak '/(?:(?!\\r/ s/^/#/' nmap-service-probes
+(NULL영역을 건들거나, 할당받은 메모리영역을 해제할때 발생한건가?)
+Q. looks like an IPv6 target specification
+-> nmap옵션 중 -6가 있음. 이걸로 해결
