@@ -3,6 +3,15 @@ import sys,subprocess
 import threading
 from queue import Queue
 
+rule_1="Service detection performed. Please report any incorrect results at https://nmap.org/submit/"
+rule_2="Nmap done: 1 IP address (1 host up) scanned in"
+rule_3="ProxyChains-3.1 (http://proxychains.sf.net)"
+rule_4="Starting Nmap 7.60 ( https://nmap.org ) at 2020-03-27"
+rule_5="Nmap scan report for"
+rule_6="Host is up."
+rule_7="All 100 scanned ports on"
+rule_8="Starting Nmap 7.60 ( https://nmap.org ) at"
+
 class Scan_duplication(threading.Thread):
     def __init__(self, time):
         super(Scan_duplication, self).__init__()
@@ -51,8 +60,10 @@ def processing(ip,sport,dport,fname,_cmd,startTime,gettime):
             stderr=subprocess.STDOUT)
         with open("./tmp/{}.txt".format(fname),"a") as files:
             for line in p.stdout.readlines():
-                print(line.decode('euc-kr')) #result.append(line.decode('euc-kr'))
-                files.write("{}".format(line.decode('euc-kr')))
+                line = line.decode('euc-kr')
+                if line != rule_1 and line != rule_2 and line != rule_3 and line != rule_4 and line != rule_5 and line != rule_6 and line != rule_7 and line != rule_8:
+                    print(line.decode('euc-kr')) #result.append(line.decode('euc-kr'))
+                    files.write("{}".format(line))
             #files.close()
     except Exception as ex:
         print("[*] error", ex)
@@ -70,6 +81,12 @@ def dataset_url(dataset):
     f.close
     return lines.split("\n")
 
+def dump_tcplog(ip, gettime):
+    proc=subprocess.Popen("sudo tcpdump -i eth0 dst {} -w {}-{}.pcap".format(ip, ip, gettime), shell=True, 
+        stdout=subprocess.PIPE, 
+        stderr=subprocess.STDOUT)
+    return proc
+        
 if __name__=="__main__": #main function line
     min_port = 1
     max_port = 65535
@@ -83,6 +100,7 @@ if __name__=="__main__": #main function line
     #processing(args.ip, args.spt, args.dpt, args.o, startTime, gettime)
     #call multi ip inside dataset
     '''
+
     threads = []
     idx=0
     dataset_args=args.ds
@@ -131,6 +149,7 @@ if __name__=="__main__": #main function line
     
     processing_thread=[]
     num_queue=0
+    #dump_tcplog() #start tcp dump
     #init including handler for Thread processing
     for q_cmd in threads:
         #print("[+] start cmd: {}".format(str(q_cmd)))
@@ -140,6 +159,8 @@ if __name__=="__main__": #main function line
         _handler.start()
     print("[+] Plz wait process")
     printProgress(1, len(threads), 'Progress:', 'Complete', 1, 50)
+    
+    
         #processing_thread.append(_handler)
     #display_offset=len(processing_thread)
     '''
