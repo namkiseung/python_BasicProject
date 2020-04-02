@@ -2,7 +2,7 @@ import argparse,os, time, datetime
 import sys,subprocess
 import threading
 from queue import Queue
-
+#0402 code:
 rule_1="Service detection performed. Please report any incorrect results at https://nmap.org/submit/"
 rule_2="Nmap done: 1 IP address (1 host up) scanned in"
 rule_3="ProxyChains-3.1 (http://proxychains.sf.net)"
