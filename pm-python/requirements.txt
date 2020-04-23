@@ -75,7 +75,7 @@ sqlite-orm==0.0.2b0
 tempora==1.13
 twilio==6.20.0
 Twisted==18.7.0
-urllib3==1.23
+urllib3==1.24.2
 virtualenv==16.0.0
 w3lib==1.19.0
 wcwidth==0.1.7
