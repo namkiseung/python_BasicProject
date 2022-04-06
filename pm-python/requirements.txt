@@ -74,7 +74,7 @@ sqlalchemy==1.2.10
 sqlite-orm==0.0.2b0
 tempora==1.13
 twilio==6.20.0
-Twisted==18.7.0
+Twisted==22.2.0
 urllib3==1.23
 virtualenv==16.0.0
 w3lib==1.19.0
