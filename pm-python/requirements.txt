@@ -64,7 +64,7 @@ query-string==1.0.2
 queuelib==1.5.0
 request==1.0.2
 requests==2.19.1
-Scrapy==1.5.1
+Scrapy==2.6.1
 selenium==3.14.1
 service-identity==17.0.0
 simplejson==3.16.0
